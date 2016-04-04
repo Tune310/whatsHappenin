@@ -11,7 +11,7 @@ apiRouter.route('/users')
 //Do a CRUD action a specific user
 apiRouter.route('/users/:id')
   .get(apiCtrl.show)
-  //update here
-  //delete here
+  .patch(apiCtrl.update)
+  .delete(apiCtrl.delete)
 
 module.exports = apiRouter

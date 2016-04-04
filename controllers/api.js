@@ -20,20 +20,29 @@ module.exports = {
     })
   },
 
-  //Show user
+  //Show User
   show: function(req, res){
     User.findOne({_id: req.params.id}, 'email name', function(err, user){
       if(err) return console.log(err)
       res.json(user)
     })
+  },
+
+  //Update User
+  update: function(req, res){
+    User.fineOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, user){
+      if(err) return console.log(err)
+      res.json({success: true, message: "User Has Been Updated!!", user: user })
+    })
+  },
+
+  //Delete User
+  delete: function(req, res){
+    User.findOneAndRemove({_id: req.params.id}, function(err){
+      if(err) return console.log(err)
+      res.json({success: true, message: "User Has Been Deleted and Removed From Database"})
+    })
   }
-
-  // update user
-
-
-
-  //delete user
-
 
 }
 
