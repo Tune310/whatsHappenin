@@ -7,7 +7,10 @@ var
   path = require('path'),
   bodyParser = require('body-parser')
 
-  //connect mongoose here
+  mongoose.connect('mongodb://localhost/database', function(err){
+    if(err) return console.log('Error something is going wrong in the mongodb')
+    console.log('Mongodb is now connected and firing')
+  })
 
   app.use(bodyParser.urlencoded({extended:false}))
   app.use(bodyParser.json())
@@ -22,3 +25,5 @@ var
   app.listen('3000', function(){
     console.log('Server is firing on port 3000')
   })
+
+// why did philipe do a .ignore and put node_modules inside of it
