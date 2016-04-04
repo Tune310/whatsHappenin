@@ -5,9 +5,10 @@ var
   logger = require('morgan'),
   mongoose = require('mongoose'),
   path = require('path'),
-  bodyParser = require('body-parser')
+  bodyParser = require('body-parser'),
+  apiRoutes = require('./routes/api.js')
 
-  mongoose.connect('mongodb://localhost/database', function(err){
+  mongoose.connect('mongodb://localhost/whatsHappenin', function(err){
     if(err) return console.log('Error something is going wrong in the mongodb')
     console.log('Mongodb is now connected and firing')
   })
@@ -20,7 +21,8 @@ var
     res.sendFile(path.join(__dirname, 'public/index.html'))
   })
 
-  //use apiRoutes here
+ // using this for test at the moment
+  app.use('/api', apiRoutes)
 
   app.listen('3000', function(){
     console.log('Server is firing on port 3000')

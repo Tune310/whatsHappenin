@@ -6,7 +6,7 @@ module.exports = {
 
   //Show All Users
   index: function(req, res){
-    User.find({}, function(error, users){
+    User.find({}, function(err, users){
       if(err) return console.log(err)
       res.json(users)
     })
