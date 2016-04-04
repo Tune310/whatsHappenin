@@ -5,9 +5,9 @@ var Event = require('../models/Event.js')
 
 module.exports = {
 
-  // Show All Events
+  // Show All Events from a user with a specific id
   index: function(req, res){
-    Event.find({}, function(err, events){
+    Event.find({user: req.params.id}, function(err, events){
       if(err) return console.log(err)
       res.json(events)
     })
@@ -21,9 +21,9 @@ module.exports = {
     })
   },
 
-  // Show Event
+  // Show A Specific Event
   show: function(req, res){
-    Event.findOne({_id: req.params.id}, 'title date description', function(err, event){
+    Event.findOne({_id: req.params.id}, 'title date description', function(err, event){ // Do I need to change or addanything to ({_id: req.params.id})????
       if(err) return console.log(error)
       res.json(event)
     })
@@ -47,5 +47,6 @@ module.exports = {
 
 }
 
+// Add the necessary procedures to have a user own an event
 //Check to make sure the user: event key value pair will work
 //Add these to your routes file

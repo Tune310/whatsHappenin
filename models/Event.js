@@ -8,7 +8,7 @@ var eventSchema = new Schema ({
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: String,
   description: String,
-  date: { type: Date, default: date.now}
+  date: { type: Date, default: Date.now}
   // time goes here?
   // how am I going to tie this in with the users??
 })
