@@ -28,7 +28,7 @@ module.exports = {
     })
   },
 
-  //Update User
+  //Update User STILL NEEDS TEST
   update: function(req, res){
     User.fineOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, user){
       if(err) return console.log(err)
@@ -36,7 +36,7 @@ module.exports = {
     })
   },
 
-  //Delete User
+  //Delete User STILL NEEDS TEST
   delete: function(req, res){
     User.findOneAndRemove({_id: req.params.id}, function(err){
       if(err) return console.log(err)

@@ -21,7 +21,7 @@ module.exports = {
     })
   },
 
-  // Show A Specific Event
+  // Show A Specific Event STILL NEEDS TEST
   show: function(req, res){
     Event.findOne({_id: req.params.id}, 'title date description', function(err, event){ // Do I need to change or addanything to ({_id: req.params.id})????
       if(err) return console.log(error)
@@ -29,7 +29,7 @@ module.exports = {
     })
   },
 
-  //Edit or Update Event
+  //Edit or Update Event STILL NEEDS TEST
   update: function(req, res){
     Event.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, event){
       if(err) return console.log(err)
@@ -37,7 +37,7 @@ module.exports = {
     })
   },
 
-  //Delete An Event
+  //Delete An Event STILL NEEDS TEST
   delete: function(req, res){
     Event.findOneAndRemove({_id: req.params.id}, function(err){
       if(err) return console.log(err)
