@@ -27,6 +27,7 @@ apiRouter.route('/user/:id/events') // should I add the /:id after event????
 
 // JWT Authenticate
 apiRouter.route('/users/authenticate')
+  .get(userCtrl.checkToken)
   .post(userCtrl.authenticate)
 
 

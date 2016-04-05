@@ -48,7 +48,31 @@ module.exports = {
     })
   },
 
-  //Authenticate User Make sure it will work here
+  //GET Authenticate User & Verify Token
+  checkToken: function(req, res, next){
+    // check header or url parameters or post parameters for a token
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+  if (!token){
+    res.json({
+      success: false,
+      message: 'Token Missing'});
+  } else {
+    jwt.verify(token, config.secret, function(err, decoded) {
+      if (err){
+        return res.json({
+          success: false,
+          message: 'Token is not valid'
+        });
+      } else {
+        // everything is good with the token, then save it to the req in other routes
+        req.decoded = decoded;
+        next();
+      }
+    });
+  }
+},
+
+  //Post & Authenticate User
   authenticate: function(req, res){ // THIS IS A POST METHOD
     console.log(req.body)
     User.findOne({email: req.body.email}, function(err, user){ //Sign in with email and password
