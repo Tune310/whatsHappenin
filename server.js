@@ -6,9 +6,9 @@ var
   mongoose = require('mongoose'),
   path = require('path'),
   bodyParser = require('body-parser'),
-  apiRoutes = require('./routes/api.js')
+  apiRoutes = require('./routes/api.js'),
+  jwt = require('jsonwebtoken') // double check with phillipe to make sure if I need to require this in my routes file
   // add bcrypt
-  // add jwt
   // create a config file
 
   mongoose.connect('mongodb://localhost/whatsHappenin', function(err){
