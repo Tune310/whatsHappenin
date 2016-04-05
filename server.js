@@ -7,6 +7,9 @@ var
   path = require('path'),
   bodyParser = require('body-parser'),
   apiRoutes = require('./routes/api.js')
+  // add bcrypt
+  // add jwt
+  // create a config file
 
   mongoose.connect('mongodb://localhost/whatsHappenin', function(err){
     if(err) return console.log('Error something is going wrong in the mongodb')

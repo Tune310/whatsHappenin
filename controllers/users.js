@@ -46,4 +46,4 @@ module.exports = {
 
 }
 
-// create a user when finished
+// Need to add jwt and possibly bcrypt params here
