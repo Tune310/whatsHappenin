@@ -9,6 +9,10 @@ apiRouter.route('/users')
   .get(userCtrl.index)
   .post(userCtrl.create)
 
+apiRouter.route('/users/authenticate')
+  // .get(userCtrl.checkToken) // check if it will see if a token is not valid
+  .post(userCtrl.authenticate)
+
 //Do a CRUD action a specific user
 apiRouter.route('/user/:id')
   .get(userCtrl.show)
@@ -26,9 +30,7 @@ apiRouter.route('/user/:id/events') // should I add the /:id after event????
   .post(eventCtrl.create)
 
 // JWT Authenticate
-apiRouter.route('/users/authenticate')
-  .get(userCtrl.checkToken)
-  .post(userCtrl.authenticate)
+
 
 
 

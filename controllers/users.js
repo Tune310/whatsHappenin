@@ -87,7 +87,7 @@ module.exports = {
         } else {
           // It means we found the user and the passwords match
           var token = jwt.sign(user, config.secret, {
-            expiresInMinutes: 1440 //24 hours
+            expiresIn: 1440*60 //24 hours
           });
 
           res.json({
