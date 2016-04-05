@@ -7,14 +7,17 @@ var
   path = require('path'),
   bodyParser = require('body-parser'),
   apiRoutes = require('./routes/api.js'),
-  jwt = require('jsonwebtoken') // double check with phillipe to make sure if I need to require this in my routes file
+  jwt = require('jsonwebtoken'), // double check with phillipe to make sure if I need to require this in my routes file
+  config = require('./config.js') // config file for jwt
   // add bcrypt
   // create a config file
 
-  mongoose.connect('mongodb://localhost/whatsHappenin', function(err){
+  mongoose.connect(config.database, function(err){
     if(err) return console.log('Error something is going wrong in the mongodb')
     console.log('Mongodb is now connected and firing')
   })
+
+  app.set('superSecret', config.secret)
 
   app.use(bodyParser.urlencoded({extended:false}))
   app.use(bodyParser.json())

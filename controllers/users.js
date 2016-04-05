@@ -1,6 +1,10 @@
 // This is the controller which will have full CRUD routes which will be used in my routes file with apiRouter
 
 var User = require('../models/User.js')
+var jwt = require('jsonwebtoken')
+var express = require('express')
+// var app = express()
+var config = require('../config.js')
 
 module.exports = {
 
@@ -42,8 +46,36 @@ module.exports = {
       if(err) return console.log(err)
       res.json({success: true, message: "User Has Been Deleted and Removed From Database"})
     })
-  }
+  },
 
+  //Authenticate User Make sure it will work here
+  authenticate: function(req, res){ // THIS IS A POST METHOD
+    console.log(req.body)
+    User.findOne({email: req.body.email}, function(err, user){ //Sign in with email and password
+      if(err) return console.log(err)
+      // User not found
+      if (!user){
+        res.json({success: false, message: 'User not found'});
+      } else if (user) {
+        // password doesn't match
+        if (user.password != req.body.password){
+          res.json({success: false, message: 'Wrong password'});
+        } else {
+          // It means we found the user and the passwords match
+          var token = jwt.sign(user, config.secret, {
+            expiresInMinutes: 1440 //24 hours
+          });
+
+          res.json({
+            success: true,
+            message: 'Enjoy your token!',
+            token: token
+          });
+
+        }
+      }
+    });
+  }
 }
 
 // Need to add jwt and possibly bcrypt params here

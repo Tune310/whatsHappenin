@@ -26,34 +26,41 @@ apiRouter.route('/user/:id/events') // should I add the /:id after event????
   .post(eventCtrl.create)
 
 // JWT Authenticate
-  apiRouter.post('/authenticate', function(req, res){
-    console.log(req.body);
-    // Find the user
-    User.findOne({email: req.body.email}, function(err, user){ //Sign in ith email and password
-      if (err) throw err;
-      // User not found
-      if (!user){
-        res.json({success: false, message: 'User not found'});
-      } else if (user) {
-        // password doesn't match
-        if (user.password != req.body.password){
-          res.json({success: false, message: 'Wrong password'});
-        } else {
-          // It means we found the user and the passwords match
-          var token = jwt.sign(user, app.get('superSecret'), {
-            expiresInMinutes: 1440 //24 hours
-          });
+apiRouter.route('/users/authenticate')
+  .post(userCtrl.authenticate)
 
-          res.json({
-            success: true,
-            message: 'Enjoy your token!',
-            token: token
-          });
 
-        }
-      }
-    });
-  });
+
+
+  // apiRouter.post('/user/:id/authenticate', function(req, res){
+  //   console.log(req.body);
+  //   // Find the user
+  //   User.findOne({email: req.body.email}, function(err, user){ //Sign in with email and password
+  //     if(err) return console.log(err)
+  //     // User not found
+  //     if (!user){
+  //       res.json({success: false, message: 'User not found'});
+  //     } else if (user) {
+  //       // password doesn't match
+  //       if (user.password != req.body.password){
+  //         res.json({success: false, message: 'Wrong password'});
+  //       } else {
+  //         // It means we found the user and the passwords match
+  //         var token = jwt.sign(user, app.get('superSecret'), {
+  //           expiresInMinutes: 1440 //24 hours
+  //         });
+  //
+  //         res.json({
+  //           success: true,
+  //           message: 'Enjoy your token!',
+  //           token: token
+  //         });
+  //
+  //       }
+  //     }
+  //   });
+  // });
+
 module.exports = apiRouter
 
 // add router for events here

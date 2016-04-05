@@ -7,7 +7,7 @@ var userSchema = new Schema({
   events: [{type: mongoose.Schema.Types.ObjectId, ref:'Event'}], // for the users
   name: String,
   email: String,
-  password: String
+  password: String 
 })
 
 var User = mongoose.model('User', userSchema)
