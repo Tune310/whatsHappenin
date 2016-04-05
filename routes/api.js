@@ -13,8 +13,12 @@ apiRouter.route('/users/authenticate')
   // .get(userCtrl.checkToken) // check if it will see if a token is not valid
   .post(userCtrl.authenticate)
 
+//Checks if user is signed in with a token otherwise the user will not have access to all routes below
+// apiRouter.use(userCtrl.checkToken) <---- KEEP COMENTED UNTIL IM READY TO ADD AUTHENTICATION ON THE FRIONT END
+
+
 //Do a CRUD action a specific user
-apiRouter.route('/user/:id')
+apiRouter.route('/users/:id')
   .get(userCtrl.show)
   .patch(userCtrl.update)
   .delete(userCtrl.delete)
@@ -25,7 +29,7 @@ apiRouter.route('/user/:id')
 
 
 // CRUD
-apiRouter.route('/user/:id/events') // should I add the /:id after event????
+apiRouter.route('/users/:id/events') // should I add the /:id after event????
   .get(eventCtrl.index)
   .post(eventCtrl.create)
 

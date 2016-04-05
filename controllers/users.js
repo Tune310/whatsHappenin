@@ -66,7 +66,7 @@ module.exports = {
       } else {
         // everything is good with the token, then save it to the req in other routes
         req.decoded = decoded;
-        next();
+        next(); // next stand for whatever you were trying to access after token has been validated!!!
       }
     });
   }
@@ -85,9 +85,16 @@ module.exports = {
         if (user.password != req.body.password){
           res.json({success: false, message: 'Wrong password'});
         } else {
-          // It means we found the user and the passwords match
-          var token = jwt.sign(user, config.secret, {
-            expiresIn: 1440*60 //24 hours
+          // Else We Have Found The User And The Passwords Match
+
+          var sendUser = {
+            email: user.email,
+            name: user.name,
+            events: user.events
+          }
+
+          var token = jwt.sign(sendUser, config.secret, {
+            expiresIn: 1440*60 //24 hours 1440 mins multiplyed by 60 seconds
           });
 
           res.json({
