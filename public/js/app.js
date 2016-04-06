@@ -13,6 +13,10 @@
         templateUrl: 'partials/home.html',
         controller: 'MainController as main'
       })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'partials/login.html'
+      })
 
   }
 })()

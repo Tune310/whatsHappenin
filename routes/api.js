@@ -13,8 +13,8 @@ apiRouter.route('/users/authenticate')
   // .get(userCtrl.checkToken) // check if it will see if a token is not valid
   .post(userCtrl.authenticate)
 
-//Checks if user is signed in with a token otherwise the user will not have access to all routes below
-// apiRouter.use(userCtrl.checkToken) <---- KEEP COMENTED UNTIL IM READY TO ADD AUTHENTICATION ON THE FRIONT END
+// THis is a middleware and this Checks if user is signed in with a token otherwise the user will not have access to all routes below the next() function says once token is verified allow user to access all other routes at the bottom
+apiRouter.use(userCtrl.checkToken)
 
 
 //Do a CRUD action a specific user
@@ -32,6 +32,7 @@ apiRouter.route('/users/:id')
 apiRouter.route('/users/:id/events') // should I add the /:id after event????
   .get(eventCtrl.index)
   .post(eventCtrl.create)
+
 
 // JWT Authenticate
 

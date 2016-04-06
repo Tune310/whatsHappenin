@@ -68,7 +68,7 @@ module.exports = {
         req.decoded = decoded;
         next(); // next stand for whatever you were trying to access after token has been validated!!!
       }
-    });
+    }); // ask phillipe and berry about the 403 status err thing in an ele statement around here!! !!!!CHECK
   }
 },
 
