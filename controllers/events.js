@@ -5,6 +5,12 @@ var Event = require('../models/Event.js')
 
 module.exports = {
 
+  getAll: function(req, res){
+    Event.find({}, function(err, events){
+      if(err) return console.log(err)
+      res.json(events)
+    })
+  },
   // Show All Events from a user with a specific id
   index: function(req, res){
     Event.find({user: req.params.id}, function(err, events){

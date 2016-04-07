@@ -1,2 +1,6 @@
-<h1 style="color: blue;">Homepage</h1>
-{{main.title}} <!-- THis is being run from the title in the from the MainController and vm.title in mainCtrl.js-->
+<h1 style="font-family: sans-serif;">Login</h1>
+<form ng-submit="global.login()">
+    <input type="email" ng-model="global.loginUser.email" placeholder="Email">
+    <input type="password" ng-model="global.loginUser.password" placeholder="Password">
+    <button type="submit">Log In</button>
+</form>

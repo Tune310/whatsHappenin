@@ -1,5 +1,5 @@
 (function(){
-  angular.module('myApp')
+  angular.module('whatsHappenin')
     .factory('myService', myService)
 
     myService.$inject = ['$http']
@@ -11,4 +11,4 @@
       }
       return service
     }
-})() // SERVICE PAGE IS WHERE YOU CONNECT BACK END TO THE FRONT END
+})()

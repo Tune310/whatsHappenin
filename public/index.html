@@ -4,29 +4,44 @@
     <meta charset="utf-8">
     <title>whatsHappenin</title>
     <!-- CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
 
     <!-- Angular App -->
-    <script src="js/angular.js" charset="utf-8"></script>
+    <script src="js/sources/angular.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
-    <script src="js/angular-ui-router.js" charset="utf-8"></script>
-    <script src="js/mainCtrl.js" charset="utf-8"></script>
-    <script src="js/myService.js" charset="utf-8"></script> <!-- factory and $http is coming from this file-->
+    <script src="js/sources/angular-ui-router.js" charset="utf-8"></script>
+    <script src="js/controllers/userCtrl.js" charset="utf-8"></script>
+    <script src="js/controllers/eventsCtrl.js" charset="utf-8"></script>
+    <script src="js/services/myService.js" charset="utf-8"></script> <!-- factory and $http is coming from this file-->
+    <script src="js/services/eventService.js" charset="utf-8"></script>
+    <script src="js/services/userService.js" charset="utf-8"></script>
+    <script src="js/controllers/globalCtrl.js" charset="utf-8"></script>
+    <!-- <script src="js/materialize.min.js" charset="utf-8"></script> -->
     <!-- <script src="js/globalCtrl.js" charset="utf-8"></script> -->
   </head>
-  <body ng-app="myApp">
-
-      <h1>Sign In</h1>
-      <br>
-    <div class="form-group">
-      <input type="text"  placeholder="Email"><br>
-      <input type="password" placeholder="Password">
+  <body ng-app="whatsHappenin" ng-controller="GlobalController as global">
+    <nav style="background-color: rgba(0, 255, 10, 0.78);">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">whatsHappenin</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="users">Users</a></li>
+        <li><a ui-sref="newUser">Create User</a></li>
+        <li ng-if="!global.isAuthed()"><a ui-sref="login">Log In</a></li>
+		<li ng-if="global.isAuthed()"><a ng-click="global.logout()">Log Out</a></li>
+      </ul>
     </div>
-      <button type="submit">Sign In</button>
+  </nav>
 
-      <a ui-sref="home">Home</a>
+  <a ui-sref="home">Home</a>
 
-
+  <div ng-controller="EventsController as evt" class="events-container">
+  <div ng-controller="UserController as user" class="users-container">
+      <!-- ng-repeat for all the events  -->
+  </div>
+  <div class="container">
+    <div ui-view></div><!-- This activates Ui Router view templates in the partials to be able to display in the webpage -->
+  </div>
 
   </body>
 </html>

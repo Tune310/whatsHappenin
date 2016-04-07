@@ -23,9 +23,9 @@ apiRouter.route('/users/:id')
   .patch(userCtrl.update)
   .delete(userCtrl.delete)
 
-// WAY TO GET EVERY EVENT FROM EVERY USER LATER ON!!!!!!!!!!!!
-// apiRouter.route('/events')
-//   .get(eventCtrl.index)
+  // WAY TO GET EVERY EVENT FROM EVERY USER LATER ON!!!!!!!!!!!!
+  apiRouter.route('/events')
+    .get(eventCtrl.getAll)
 
 
 // CRUD

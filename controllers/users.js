@@ -66,6 +66,7 @@ module.exports = {
       } else {
         // everything is good with the token, then save it to the req in other routes
         req.decoded = decoded;
+        console.log(decoded)
         next(); // next stand for whatever you were trying to access after token has been validated!!!
       }
     }); // ask phillipe and berry about the 403 status err thing in an ele statement around here!! !!!!CHECK
