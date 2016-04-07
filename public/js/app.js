@@ -7,14 +7,15 @@
 
     // my established routes
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'partials/home.html'
+      .state('login', { // when state hears login do whats in the key value pair
+        url: '/login', // this displays something different in the url from the SPA
+        templateUrl: 'partials/login.html', // put this file in the ui-view tag in the index.html file
+        controller: 'UserController as user' // this is what's controlling the current state
       })
-      .state('users', {
-        url: '/users',
-        templateUrl: 'partials/users.html',
-        controller: 'UserController as User'
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'partials/signup.html',
+        controller: 'UserController as user'
       })
   })
 })()
