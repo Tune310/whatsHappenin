@@ -23,7 +23,14 @@ module.exports = {
   create: function(req, res){
     Event.create(req.body, function(err, event){
       if(err) return console.log(err)
-      res.json({success: true, message: "An Event Has Been Successfully Created by a user", event: event})
+      User.findOne({_id: req.params.id}, function(err, user){
+        if(err) return console.log(err)
+        user.events.push(event)
+        user.save(function(err){
+          if(err) return console.log(err)
+          res.json({success: true, message: "An Event Has Been Successfully Created by a user", event: event})
+        })
+      })
     })
   },
 

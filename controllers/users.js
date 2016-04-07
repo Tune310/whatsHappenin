@@ -26,7 +26,7 @@ module.exports = {
 
   //Show User
   show: function(req, res){
-    User.findOne({_id: req.params.id}, 'email name', function(err, user){
+    User.findOne({_id: req.params.id}, 'email name events').populate('events').exec(function(err, user){
       if(err) return console.log(err)
       res.json(user)
     })
@@ -91,7 +91,8 @@ module.exports = {
           var sendUser = {
             email: user.email,
             name: user.name,
-            events: user.events
+            events: user.events,
+            id: user._id
           }
 
           var token = jwt.sign(sendUser, config.secret, {

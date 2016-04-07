@@ -2,7 +2,7 @@
   angular.module('whatsHappenin')
     .controller('UserController', UserController)
     // This is the controller for users in my app
-    UserController.$inject = ['userService', '$state']
+    UserController.$inject = ['userService', '$state', '$stateParams']
 
     function UserController(userService, $state){
       var vm = this
@@ -23,6 +23,6 @@
 				$state.go('profile', {id: response.user._id})
 			})
 		}
-
-    }
+    
+  }
 })()

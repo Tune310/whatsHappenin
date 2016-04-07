@@ -19,7 +19,7 @@
 
         $rootScope.$on('$stateChangeStart', function(event, toState){
             console.log(toState)
-            if(toState.name == "users" && !vm.isAuthed()){
+            if(toState.name == "events" && !vm.isAuthed()){
                 event.preventDefault()
                 $state.go('login')
             }
@@ -27,7 +27,10 @@
 
         function handleRequest(res) {
             var token = res.data ? res.data.token : null;
-            if(token) { console.log('JWT:', token); }
+            if(token) {
+              console.log('JWT:', token);
+              $state.go('profile', {id: auth.parseJwt(auth.getToken()).id})
+            }
             vm.message = res.data.message;
         }
 
@@ -37,10 +40,6 @@
         }
         vm.register = function() {
             user.register(vm.username, vm.password)
-                .then(handleRequest, handleRequest)
-        }
-        vm.getQuote = function() {
-            user.getQuote()
                 .then(handleRequest, handleRequest)
         }
         vm.logout = function() {
@@ -69,7 +68,8 @@
                 if(res.data.token) {
                     auth.saveToken(res.data.token);
                 }
-
+                // TODO: Get token back and stored locally:
+                console.log(res.data.token)
                 return res;
             },
         }
@@ -112,15 +112,12 @@
 
     function userService($http, API, auth) {
         var self = this;
-        self.getQuote = function() {
-            return $http.get(API + '/api/auth/quote')
-        }
 
         // add authentication methods here
 
         self.login = function(email, password) {
             console.log("Trying to login")
-            return $http.post('/api/authenticate', {
+            return $http.post('/api/users/authenticate', {
                 email: email,
                 password: password
             })

@@ -17,5 +17,20 @@
         templateUrl: 'partials/signup.html',
         controller: 'UserController as user'
       })
+      .state('profile', {
+        url: '/profile/:id',
+        templateUrl: 'partials/profile.html',
+        controller: 'DetailController as detail'
+      })
+      .state('home', {
+        url: '/',
+        templateUrl: 'partials/home.html'
+      })
+      .state('events', {
+        url: '/events',
+        templateUrl: 'partials/events.html',
+        controller: 'EventsController as events'
+      })
+
   })
 })()

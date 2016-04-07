@@ -21,6 +21,11 @@
     //   console.log(userResult)
     // })
 
+    // eventService.create(vm.addEvent).success(function(response){
+    //   console.log(response)
+    //   $state.go('profile' /* I have no idea what to fucking do here.....*/) //TODO no idea if this works
+    // })
+
   }
 
 })()

@@ -1,0 +1,8 @@
+<h1>congrats you made an account</h1>
+<h3>{{ detail.user.email }}</h3>
+<h3>{{ detail.user.name }}</h3>
+<h3>{{ detail.user._id }}</h3>
+
+<ul>
+  <li ng-repeat="event in detail.user.events">{{event.title}} - {{ event.date}} |  {{event.description}}</li>
+</ul>

@@ -5,6 +5,7 @@
     <title>whatsHappenin</title>
     <!-- CSS -->
     	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     <!-- Angular App -->
     <script src="js/sources/angular.js" charset="utf-8"></script>
@@ -16,6 +17,7 @@
     <script src="js/services/eventService.js" charset="utf-8"></script>
     <script src="js/services/userService.js" charset="utf-8"></script>
     <script src="js/controllers/globalCtrl.js" charset="utf-8"></script>
+    <script src="js/controllers/detailCtrl.js" charset="utf-8"></script>
     <!-- <script src="js/materialize.min.js" charset="utf-8"></script> -->
     <!-- <script src="js/globalCtrl.js" charset="utf-8"></script> -->
   </head>
@@ -26,14 +28,12 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a ui-sref="home">Home</a></li>
         <li><a ui-sref="signup">Sign Up</a></li>
+        <li><a ui-sref="events">Events</a></li>
         <li ng-if="!global.isAuthed()"><a ui-sref="login">Log In</a></li>
 		<li ng-if="global.isAuthed()"><a ng-click="global.logout()">Log Out</a></li>
       </ul>
     </div>
   </nav>
-
-  <a ui-sref="login">login</a>
-
 
   <div ng-controller="EventsController as event" class="events-container">
   <div ng-controller="UserController as user" class="users-container">
