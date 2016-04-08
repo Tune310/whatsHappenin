@@ -5,3 +5,77 @@ div.events {
 body {
   background-image: url("loginLA.jpg");
 }
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:700);
+
+h1 {
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 80px;
+  transform: skewY(-10deg);
+  letter-spacing: 4px;
+  word-spacing: -8px;
+  color: rgba(0, 0, 0, 1);
+  text-shadow:
+    -1px -1px 0 firebrick,
+    -2px -2px 0 firebrick,
+    -3px -3px 0 firebrick,
+    -4px -4px 0 firebrick,
+    -5px -5px 0 firebrick,
+    -6px -6px 0 firebrick,
+    -7px -7px 0 firebrick,
+    -8px -8px 0 firebrick,
+    -30px 20px 40px dimgrey
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.centered {
+  height: 100%;
+  margin-top: 10%;
+  text-align: center;
+}
+
+button {
+  position: relative;
+  border-radius: 5px;
+  border-left: 1px solid rgba(255,255,255,.3);
+  border-top: 1px solid rgba(255,255,255,.3);
+  border-right: 1px solid rgba(255,255,255,.3);
+  border-bottom: none;
+  padding: 12px 15px 18px 15px;
+  cursor: pointer;
+  font-size: 30px;
+  font-family: Raleway;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(to bottom, #0ABEFA 0%,#ea0b0b 100%);
+  box-shadow:inset 0 -5px 0 0 #b10408;
+  outline: none;
+}
+
+button:hover,
+button:focus,
+button:active {
+  background: linear-gradient(to bottom,#ea0b0b 0%,#fd4452 100%);
+}
+
+button:active {
+  box-shadow: inset 0 -2px 0 0 #b10408;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16%;
+  left: -6%;
+  display: block;
+  width: 112%;
+  height: 120%;
+  border-radius: 5px;
+  box-shadow:inset 0 1px 2px 0 rgba(0,0,0,.3);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.05) 100%);
+}
