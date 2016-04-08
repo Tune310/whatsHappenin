@@ -1,8 +1,19 @@
-<h1>congrats you made an account</h1>
+<h5>Your Events</h5>
 <h3>{{ detail.user.email }}</h3>
 <h3>{{ detail.user.name }}</h3>
-<h3>{{ detail.user._id }}</h3>
 
-<ul>
+
+<!-- <ul>
   <li ng-repeat="event in detail.user.events">{{event.title}} - {{ event.date}} |  {{event.description}}</li>
-</ul>
+</ul> -->
+
+  <ul class="collection">
+    <li ng-repeat="event in detail.user.events">
+      <div class="events"><em>Event: </em>{{event.title}}</div>
+      <div class="events"><em>Description: </em>{{event.description}}</div>
+      <div class="events">{{event.date}}</div>
+      <br><hr>
+    </li>
+    <!-- <li ng-repeat="event in detail.user.events">{{event.description}}</li>
+    <li ng-repeat="event in detail.user.events">{{event.date}}</li> -->
+  </ul>
