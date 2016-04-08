@@ -24,7 +24,7 @@
         return $http.get(userEvents +  id + '/events')
       }
 
-      function create(newEvent){
+      function create(id, newEvent){
         return $http.post(userEvents +  id + '/events/', newEvent)
       }
 

@@ -18,11 +18,10 @@
 
       vm.create = function(){
         console.log(vm.newUser)
-			// run the userService create method here.
 			userService.create(vm.newUser).success(function(response){
 				$state.go('profile', {id: response.user._id})
 			})
 		}
-    
+
   }
 })()

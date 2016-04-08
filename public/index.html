@@ -28,7 +28,8 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a ui-sref="home">Home</a></li>
         <li><a ui-sref="signup">Sign Up</a></li>
-        <li><a ui-sref="events">Events</a></li>
+        <li><a ui-sref="events">Event</a></li>
+        <li><a ui-sref="profile">Profile</a></li>
         <li ng-if="!global.isAuthed()"><a ui-sref="login">Log In</a></li>
 		<li ng-if="global.isAuthed()"><a ng-click="global.logout()">Log Out</a></li>
       </ul>
@@ -37,6 +38,8 @@
 
   <div ng-controller="EventsController as event" class="events-container">
   <div ng-controller="UserController as user" class="users-container">
+  <div ng-controller="DetailController as detail" class="users-container">
+
       <!-- ng-repeat for all the events  -->
   </div>
   <div class="container">

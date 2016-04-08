@@ -103,6 +103,17 @@
             }
         }
 
+        self.currentUser = function(){
+          var token = self.getToken();
+          if(token) {
+              var params = self.parseJwt(token);
+              return {name: params.name, id: params.id, email: params.email};
+              // return {test: "test"}
+          } else {
+              return false;
+          }
+        }
+
         self.logout = function() {
             $window.localStorage.removeItem('jwtToken');
         }

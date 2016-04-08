@@ -2,14 +2,14 @@
   angular.module('whatsHappenin')
     .controller('EventsController', EventsController)
 
-    EventsController.$inject = ['eventService', '$state']
+    EventsController.$inject = ['eventService', '$state', 'auth']
 
-  function EventsController(eventService, $state) {
+  function EventsController(eventService, $state, auth) {
     console.log("EventsController created")
 
     var vm = this
     vm.title = "Events Controller"
-    vm.addEvent = {}
+    vm.newEvent = {}
     // be able to console.log all events from the backend to the front end on a page
     eventService.getAll().success(function(results){ // or should i do index here?????
       vm.events = results
@@ -21,11 +21,13 @@
     //   console.log(userResult)
     // })
 
-    // eventService.create(vm.addEvent).success(function(response){
-    //   console.log(response)
-    //   $state.go('profile' /* I have no idea what to fucking do here.....*/) //TODO no idea if this works
-    // })
-
+    vm.createEvent = function(){
+      console.log(auth.currentUser().id);
+      eventService.create(auth.currentUser().id,vm.newEvent).success(function(response){
+        console.log(response) //TODO fix this for all users
+        // $state.post('profile', vm.newEvent) //TODO no idea if this works
+      })
+    }
   }
 
 })()

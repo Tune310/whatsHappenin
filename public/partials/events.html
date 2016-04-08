@@ -2,10 +2,11 @@
 <h1>Post an Event</h1>
 
 <h2>Title</h2>
-<input type="text" name="name" placeholder="title">
+<input type="text" name="name" placeholder="title" ng-model="event.newEvent.title">
 
-<input type="text" name="name" placeholder="Description">
+<input type="text" name="name" placeholder="Description" ng-model="event.newEvent.description">
 
+<button type="submit" ng-click="event.createEvent()">Add Event</button>
 <!--- Add Date here-->
 
 
