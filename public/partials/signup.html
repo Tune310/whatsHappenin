@@ -1,9 +1,9 @@
 <!-- TODO Signup Form -->
 
 <form ng-submit="user.create()">
-  <h5 style="color: white;">Email</h5>
-  <input style="color: white;"type="email" ng-model="user.newUser.email" placeholder="Email">
-  <h5 style="color: white;">Password</h5>
-  <input style="color: white;" type="password" ng-model="user.newUser.password" placeholder="Password">
+  <h5 data-shadow="Email" style="color: rgb(15, 15, 15);">Email</h5>
+  <input style="color: lime;"type="email" ng-model="user.newUser.email" placeholder="Email">
+  <h5 data-shadow="Password" style="color: white;">Password</h5>
+  <input style="color: lime;" type="password" ng-model="user.newUser.password" placeholder="Password">
   <button class="dont-trip" type="submit">Create Account</button>
 </form>
