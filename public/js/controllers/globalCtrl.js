@@ -17,6 +17,8 @@
 
         vm.loginUser = {}
 
+        vm.user = auth.currentUser()
+
         $rootScope.$on('$stateChangeStart', function(event, toState){
             console.log(toState)
             if(toState.name == "events" && !vm.isAuthed()){
