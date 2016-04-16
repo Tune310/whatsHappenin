@@ -6,6 +6,11 @@ body {
   background-image: url("loginLA.jpg");
 }
 
+em {
+  font-weight: 600;
+  font-size: 18px;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Raleway:700);
 
 h1{

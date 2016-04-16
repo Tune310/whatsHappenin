@@ -7,11 +7,11 @@
   <li ng-repeat="event in detail.user.events">{{event.title}} - {{ event.date}} |  {{event.description}}</li>
 </ul> -->
 
-  <ul class="collection">
+  <ul class="collection with-header">
     <li ng-repeat="event in detail.user.events">
-      <div style="color: rgb(255, 255, 255);" class="events"><em>Event: </em>{{event.title}}</div>
-      <div style="color: rgb(0, 240, 255);" class="events"><em>Description: </em>{{event.description}}</div>
-      <div style="color: rgb(0, 255, 217);" class="events">{{event.date}}</div>
+      <div style="color: rgb(255, 255, 255); border: 2px solid black;" class="events"><em>Event: </em>{{event.title}}</div>
+      <div style="color: rgb(0, 240, 255); font-size: 16px;" class="events"><em>Description: </em>{{event.description}}</div>
+      <div style="color: rgb(0, 0, 0); font-size: 16px;" class="events"><em>Posted: </em>{{event.date | date : 'yyyy-MM-dd HH:mm'}}</div>
       <br><hr>
     </li>
     <!-- <li ng-repeat="event in detail.user.events">{{event.description}}</li>
