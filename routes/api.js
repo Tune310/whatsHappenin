@@ -14,7 +14,7 @@ apiRouter.route('/users/authenticate')
   .post(userCtrl.authenticate)
 
 // THis is a middleware and this Checks if user is signed in with a token otherwise the user will not have access to all routes below the next() function says once token is verified allow user to access all other routes at the bottom
-// apiRouter.use(userCtrl.checkToken)
+apiRouter.use(userCtrl.checkToken)
 
 
 //Do a CRUD action a specific user
