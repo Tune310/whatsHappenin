@@ -1,5 +1,5 @@
 <h5 data-shadow="Your Events" style="color: rgb(15, 15, 15);">Your Events</h5>
-<h3>{{ detail.user.email }}</h3>
+<h3 style="font-family: 'BenchNine', sans-serif;">{{ detail.user.email }}</h3>
 <h3>{{ detail.user.name }}</h3>
 
 
@@ -9,10 +9,10 @@
 
   <ul class="collection with-header">
     <li ng-repeat="event in detail.user.events">
-      <div style="color: rgb(255, 255, 255); border: 2px solid black;" class="events"><em>Event: </em>{{event.title}}</div>
-      <div style="color: rgb(0, 240, 255); font-size: 16px;" class="events"><em>Description: </em>{{event.description}}</div>
-      <div style="color: rgb(0, 0, 0); font-size: 16px;" class="events"><em>Posted: </em>{{event.date | date : 'yyyy-MM-dd HH:mm'}}</div>
-      <br><hr>
+      <div style="background-color: rgba(255, 255, 255, 0.86); color: black; border: 2px solid black; padding: 5px;" class="events"><em>Event: </em>{{event.title}}</div>
+      <div style="background-color: rgba(118, 121, 138, 0.72); color: rgb(0, 240, 255); border: 2px solid black; font-size: 16px;" class="events"><em>Description: </em>{{event.description}}</div>
+      <div style="background-color: rgba(54, 88, 175, 0.42); border-bottom: 2px dashed white; color: rgb(0, 0, 0); font-size: 16px;" class="events"><em>Posted: </em>{{event.date | date : 'yyyy-MM-dd HH:mm'}}</div>
+      <br>
     </li>
     <!-- <li ng-repeat="event in detail.user.events">{{event.description}}</li>
     <li ng-repeat="event in detail.user.events">{{event.date}}</li> -->
